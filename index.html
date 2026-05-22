@@ -1,0 +1,530 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>SMK Negeri 4 Buton Utara | Pusat Keunggulan Vokasi</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7fc;
+            color: #1e2a3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2c7da0;
+            border-radius: 10px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header & Navbar */
+        .navbar {
+            background: linear-gradient(135deg, #0b3b4f 0%, #1b5a6e 100%);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px;
+            flex-wrap: wrap;
+        }
+        .logo-area h1 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .logo-area p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        .nav-links a:hover {
+            color: #f9d56e;
+            border-bottom: 2px solid #f9d56e;
+            padding-bottom: 6px;
+        }
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            background-attachment: fixed;
+            position: relative;
+            padding: 100px 0;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 30, 40, 0.75);
+        }
+        .hero-content {
+            position: relative;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero-content h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        .btn-cta {
+            background: #f9a826;
+            color: #1e2a3e;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .btn-cta:hover {
+            background: #ffc857;
+            transform: translateY(-3px);
+        }
+
+        /* Section umum */
+        .section {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #0f4c5f;
+            position: relative;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #f9a826;
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+        .section-desc {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+
+        /* Cards jurusan */
+        .jurusan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin-top: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s;
+            cursor: default;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 40px -12px rgba(0,0,0,0.2);
+        }
+        .card-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            transition: 0.5s;
+        }
+        .card-content {
+            padding: 24px 20px 28px;
+        }
+        .card-content h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #1b5a6e;
+        }
+        .badge {
+            display: inline-block;
+            background: #eef2f6;
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c7da0;
+        }
+        .card-content p {
+            color: #334155;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .detail-link {
+            font-weight: 700;
+            color: #f9a826;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .detail-link i {
+            transition: transform 0.2s;
+        }
+        .detail-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* gambar khusus per jurusan (iconic representasi) */
+        .img-tkj { background-image: linear-gradient(135deg, #1e3c4c, #2a5f73), url('https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'); background-blend-mode: overlay; background-size: cover; }
+        .img-tkp { background-image: linear-gradient(135deg, #2e5f4b, #3b8268), url('https://images.unsplash.com/photo-1503387762-592b58a9a8d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'); background-blend-mode: overlay; background-size: cover; }
+        .img-akt { background-image: linear-gradient(135deg, #3b3f6b, #585d9e), url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'); background-blend-mode: overlay; background-size: cover; }
+        .img-titl { background-image: linear-gradient(135deg, #b96f0f, #e68a2e), url('https://images.unsplash.com/photo-1581092335871-4c5c4b9c45c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'); background-blend-mode: overlay; background-size: cover; }
+
+        /* fasilitas & prestasi */
+        .stats-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            background: #eef2f6;
+            border-radius: 60px;
+            padding: 45px 40px;
+            margin-top: 40px;
+        }
+        .stat-item {
+            flex: 1;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0f4c5f;
+        }
+        /* Footer */
+        footer {
+            background: #0b2b36;
+            color: #cddfe6;
+            padding: 50px 0 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        .footer-col p, .footer-col a {
+            color: #b9d4e0;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+        .footer-col a:hover {
+            color: #f9a826;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #2d5b6e;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.9rem;
+            }
+            .stats-flex {
+                flex-direction: column;
+                border-radius: 30px;
+            }
+        }
+        .wave-bg {
+            background: linear-gradient(120deg, #ffffff, #f9fbfd);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="nav-container container">
+            <div class="logo-area">
+                <h1>SMKN 4 BUTON UTARA</h1>
+                <p><i class="fas fa-graduation-cap"></i> Vokasi Unggul | Berkarakter | Kompeten</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#jurusan">Jurusan</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section / Home -->
+    <section id="home" class="hero">
+        <div class="hero-content container">
+            <h2>Masa Depan Gemilang <br>Dimulai Dari Sini</h2>
+            <p>SMK Negeri 4 Buton Utara – Mencetak tenaga profesional siap kerja di bidang Teknologi, Konstruksi, Akuntansi, dan Kelistrikan.</p>
+            <a href="#jurusan" class="btn-cta"><i class="fas fa-arrow-right"></i> Eksplor Jurusan</a>
+        </div>
+    </section>
+
+    <!-- 4 Jurusan Unggulan -->
+    <section id="jurusan" class="section wave-bg">
+        <div class="container">
+            <h2 class="section-title">Kompetensi Keahlian</h2>
+            <p class="section-desc">SMK Negeri 4 Buton Utara membuka 4 jurusan unggulan yang relevan dengan dunia industri dan kebutuhan masa depan.</p>
+            <div class="jurusan-grid">
+                <!-- TKJ -->
+                <div class="card">
+                    <div class="card-img img-tkj"></div>
+                    <div class="card-content">
+                        <span class="badge"><i class="fas fa-network-wired"></i> IT & Jaringan</span>
+                        <h3>TKJ</h3>
+                        <p><strong>Teknik Komputer & Jaringan</strong> – Ahli di bidang perakitan komputer, instalasi jaringan, administrasi server, dan keamanan siber.</p>
+                        <a href="#" class="detail-link">Pelajari lebih <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+                <!-- TKP -->
+                <div class="card">
+                    <div class="card-img img-tkp"></div>
+                    <div class="card-content">
+                        <span class="badge"><i class="fas fa-drafting-compass"></i> Konstruksi</span>
+                        <h3>TKP</h3>
+                        <p><strong>Teknik Konstruksi Perumahan</strong> – Mendalami gambar bangunan, estimasi biaya, serta teknik membangun hunian modern yang kokoh.</p>
+                        <a href="#" class="detail-link">Pelajari lebih <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+                <!-- AKT -->
+                <div class="card">
+                    <div class="card-img img-akt"></div>
+                    <div class="card-content">
+                        <span class="badge"><i class="fas fa-chart-line"></i> Bisnis & Keuangan</span>
+                        <h3>AKT</h3>
+                        <p><strong>Akuntansi</strong> – Menguasai pencatatan keuangan, perpajakan, software akuntansi, dan analisis laporan keuangan.</p>
+                        <a href="#" class="detail-link">Pelajari lebih <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+                <!-- TITL -->
+                <div class="card">
+                    <div class="card-img img-titl"></div>
+                    <div class="card-content">
+                        <span class="badge"><i class="fas fa-bolt"></i> Energi & Listrik</span>
+                        <h3>TITL</h3>
+                        <p><strong>Teknik Instalasi Tenaga Listrik</strong> – Pakar instalasi listrik gedung, panel kontrol, motor listrik, dan sistem tenaga terbarukan.</p>
+                        <a href="#" class="detail-link">Pelajari lebih <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Sekolah & Statistik -->
+    <section id="tentang" class="section">
+        <div class="container">
+            <div class="stats-flex">
+                <div class="stat-item">
+                    <div class="stat-number"><i class="fas fa-laptop-code"></i> 4+</div>
+                    <p>Kompetensi Keahlian</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number"><i class="fas fa-chalkboard-user"></i> 95%</div>
+                    <p>Guru Profesional Bersertifikat</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number"><i class="fas fa-building"></i> 12+</div>
+                    <p>Mitra Industri & Dunia Usaha</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number"><i class="fas fa-trophy"></i> 25+</div>
+                    <p>Prestasi Nasional & Lokal</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 70px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
+                <div style="flex: 1.2;">
+                    <h3 style="font-size: 1.8rem; color: #0b3b4f;">Tentang <span style="color:#f9a826;">SMK 4 Buton Utara</span></h3>
+                    <p style="margin-top: 20px; font-size: 1.05rem; line-height: 1.6;">Berlokasi strategis di wilayah Buton Utara, Sulawesi Tenggara, SMK Negeri 4 Buton Utara berkomitmen melahirkan lulusan yang berkarakter, adaptif terhadap teknologi, dan siap bersaing di era revolusi industri 4.0. Dengan kurikulum berbasis project based learning, setiap siswa tidak hanya belajar teori tetapi langsung praktik di bengkel modern dan laboratorium.</p>
+                    <p style="margin-top: 16px;">Kerjasama dengan perusahaan dan instansi pemerintah membuka peluang magang serta penyerapan tenaga kerja. Didukung oleh tenaga pendidik yang ahli di bidangnya, kami memastikan setiap kompetensi keahlian (TKJ, TKP, AKT, TITL) terfasilitasi optimal.</p>
+                </div>
+                <div style="flex: 0.8; background: linear-gradient(145deg,#0f4c5f,#2c7da0); border-radius: 40px; padding: 30px 20px; text-align: center; color: white;">
+                    <i class="fas fa-quote-right" style="font-size: 2.5rem; opacity: 0.5;"></i>
+                    <p style="font-size: 1.1rem; font-style: italic; margin: 20px 0;">"Pendidikan vokasi yang membekali keterampilan, mental juara, dan integritas tinggi."</p>
+                    <p><strong>— Kepala Sekolah SMKN 4 Buton Utara</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri singkat / fasilitas & ektra -->
+    <section style="background: #e6f0f5; padding: 60px 0;">
+        <div class="container">
+            <h2 class="section-title">Fasilitas Unggulan</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 25px; margin-top: 40px;">
+                <div style="background:white; border-radius: 20px; text-align: center; padding: 30px 15px; box-shadow:0 10px 20px rgba(0,0,0,0.05);"><i class="fas fa-microchip" style="font-size: 3rem; color:#2c7da0;"></i><h3 style="margin:15px 0 5px">Lab. TKJ</h3><p>PC spesifikasi tinggi, server, dan jaringan fiber optic.</p></div>
+                <div style="background:white; border-radius: 20px; text-align: center; padding: 30px 15px;"><i class="fas fa-hard-hat" style="font-size: 3rem; color:#3b8268;"></i><h3 style="margin:15px 0 5px">Workshop Konstruksi</h3><p>Peralatan ukur kayu, beton, serta software gambar 3D.</p></div>
+                <div style="background:white; border-radius: 20px; text-align: center; padding: 30px 15px;"><i class="fas fa-calculator" style="font-size: 3rem; color:#585d9e;"></i><h3 style="margin:15px 0 5px">Lab. Akuntansi</h3><p>Aplikasi MYOB, Zahir, dan simulasi pajak terbaru.</p></div>
+                <div style="background:white; border-radius: 20px; text-align: center; padding: 30px 15px;"><i class="fas fa-plug" style="font-size: 3rem; color:#e68a2e;"></i><h3 style="margin:15px 0 5px">Instalasi Listrik</h3><p>Panel surya, motor kontrol, dan instalasi gedung.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hubungi Kami / Kontak -->
+    <section id="kontak" class="section">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; gap: 45px; background: white; border-radius: 48px; box-shadow: 0 20px 35px -8px rgba(0,0,0,0.1); padding: 45px 35px;">
+                <div style="flex: 1;">
+                    <h3 style="font-size: 1.8rem; color: #0b3b4f;">Hubungi Kami</h3>
+                    <p style="margin: 15px 0 20px;">Butuh informasi pendaftaran, kerjasama industri atau pertanyaan seputar jurusan? Tim kami siap membantu.</p>
+                    <div style="margin: 25px 0;">
+                        <p><i class="fas fa-map-marker-alt" style="width: 30px; color:#f9a826;"></i> Jl. Poros Desa Wambuloli, Kec. Kulisusu, Kab. Buton Utara, Sulawesi Tenggara</p>
+                        <p style="margin-top: 12px;"><i class="fas fa-phone-alt" style="width:30px; color:#f9a826;"></i> +62 823 4567 8901</p>
+                        <p><i class="fas fa-envelope" style="width:30px; color:#f9a826;"></i> info@smkn4butonutara.sch.id</p>
+                        <p><i class="fab fa-instagram" style="width:30px; color:#f9a826;"></i> @smkn4_bu_official</p>
+                    </div>
+                </div>
+                <div style="flex: 1.2;">
+                    <form action="#" method="post">
+                        <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 15px;">
+                            <input type="text" placeholder="Nama Lengkap" style="flex:1; padding: 14px; border-radius: 40px; border: 1px solid #cbd5e1; font-family: inherit;">
+                            <input type="email" placeholder="Email Aktif" style="flex:1; padding: 14px; border-radius: 40px; border: 1px solid #cbd5e1;">
+                        </div>
+                        <textarea rows="4" placeholder="Pesan / Pertanyaan mengenai jurusan TKJ, TKP, AKT, atau TITL..." style="width:100%; padding: 14px; border-radius: 24px; border: 1px solid #cbd5e1; font-family: inherit; margin-bottom: 15px;"></textarea>
+                        <button type="submit" style="background:#0f4c5f; border:none; color:white; font-weight: bold; padding: 12px 28px; border-radius: 40px; cursor: pointer; transition: 0.2s;"><i class="fas fa-paper-plane"></i> Kirim Pesan</button>
+                    </form>
+                    <p class="small" style="margin-top: 15px; font-size: 0.75rem; color:#64748b;">*Kami akan membalas dalam 1x24 jam.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>SMK NEGERI 4 BUTON UTARA</h4>
+                    <p>Membangun generasi terampil, berakhlak mulia, dan berdaya saing global. Terakreditasi "Unggul".</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Jurusan</h4>
+                    <p>TKJ - Teknik Komputer Jaringan</p>
+                    <p>TKP - Teknik Konstruksi Perumahan</p>
+                    <p>AKT - Akuntansi</p>
+                    <p>TITL - Teknik Instalasi Tenaga Listrik</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Pranala</h4>
+                    <p><a href="#home">Beranda</a></p>
+                    <p><a href="#jurusan">Jurusan Unggulan</a></p>
+                    <p><a href="#tentang">Profil Sekolah</a></p>
+                    <p><a href="#kontak">Kontak & PPDB</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4>Ikuti Kami</h4>
+                    <p><i class="fab fa-facebook-f"></i> Facebook : smkn4butonutara</p>
+                    <p><i class="fab fa-youtube"></i> YouTube : SMK4BU Official</p>
+                    <p><i class="fab fa-tiktok"></i> TikTok : @smk4butora</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 SMK Negeri 4 Buton Utara | Dinas Pendidikan Provinsi Sulawesi Tenggara | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- sedikit smooth scroll dan efek -->
+    <script>
+        document.querySelectorAll('.nav-links a, .btn-cta').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if(href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if(target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+        // untuk card detail link prevent default jika tidak ada halaman lanjut
+        const detailLinks = document.querySelectorAll('.detail-link');
+        detailLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('💡 Untuk informasi lebih lengkap silakan hubungi bagian humas SMK Negeri 4 Buton Utara.');
+            });
+        });
+        // form submit dummy
+        const form = document.querySelector('form');
+        if(form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('✅ Terima kasih! Pesan Anda telah dikirim. Pihak sekolah akan segera merespon.');
+                form.reset();
+            });
+        }
+    </script>
+</body>
+</html>
+```
